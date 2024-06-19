@@ -5,5 +5,6 @@ int main(){
 	printf("Hello, world!\n");
 	HelloAgain();
 	printf("Jenny, I got your number%d", phonenumber);
+	printf("Jenny, I got your number%d", phonenumber);
 	return 0;
 }
