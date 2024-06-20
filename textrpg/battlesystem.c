@@ -34,7 +34,8 @@ scanf("%d", &playerMove);
 return 0;
 }
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
-printf("Inside monster attack, %s\n", monster);	
+printf("Enemy name:  %s\n", monster);	
+printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
 
 
 return 1;
