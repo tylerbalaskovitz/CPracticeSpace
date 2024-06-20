@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+extern int combat(char monster, int hp, int def, int att, int mag){
+
+
+}
+bool innitiative = true;
+bool ingame = true;
+int battleCondition = 0;
+
+ int main() {
+	 while (ingame){
+	battleCondition = playerAttack("Player", 0, 0,0,0);
+	battleCondition = monsterAttack("Enemy", 0,0,0,0);		
+	
+	if (battleCondition = 1){
+	ingame = false;
+	}
+
+	 }
+
+
+
+return 0;
+ }
+
+int playerAttack(char monster[50], int hp, int def, int att, int mag){
+
+
+return 0;
+}
+int monsterAttack(char monster[50], int hp, int def, int att, int mag){
+	
+
+
+return 0;
+}
+
