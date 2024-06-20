@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 int monsterAttack(char monster[50], int hp, int def, int att, int mag);
-int playerAttack(char monster[50], int hp, int def, int att, int mag);
+int playerAttack(char player[50], int hp, int def, int att, int mag);
 int combat(char monster, int hp, int def, int att, int mag);
 
 bool innitiative = true;
@@ -25,15 +25,13 @@ return 0;
  }
 
 
-int playerAttack(char monster[50], int hp, int def, int att, int mag){
-
-printf("Inside player attack");	
+int playerAttack(char player[50], int hp, int def, int att, int mag){
+printf("Inside player attack, %s\n", player);	
 
 return 0;
 }
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
-
-printf("Inside monster attack");	
+printf("Inside monster attack, %s\n", monster);	
 
 
 return 1;
