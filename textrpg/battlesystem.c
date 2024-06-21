@@ -5,7 +5,7 @@
 int monsterAttack(char monster[50], int hp, int def, int att, int mag);
 int playerAttack(char player[50], int hp, int def, int att, int mag);
 int combat(char monster, int hp, int def, int att, int mag);
-
+int turnHolder = 0;
 int damageDealt = 0;
 char playName[50] = "Ralphie";
 int playHp = 30, playDef = 5, playAtt = 20, playMag = 25, playTempDef = 0;
@@ -54,13 +54,14 @@ printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 		default:printf("You pass this round. Wow neat!"); break;
 	}
 	if (damageDealt > 0) {
-		printf("\nThe monster attacks you for %d damage\n", damageDealt);
+		printf("\nYou attack the %s for %d damage\n",monName, damageDealt);
 	}
 	if (monHp <= 0) {
 		printf("You have defeated the %s, congratulations!\n", monName);
 		victory = true;
 		return 1;
-}
+	}
+	scanf("%d", turnHolder);
 return 0;
 }
 
@@ -85,6 +86,7 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 		return 1;
 }
 
+	scanf("%d", turnHolder);
 return 0;
 }
 
