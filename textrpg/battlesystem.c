@@ -3,6 +3,10 @@
 int monsterAttack(char monster[50], int hp, int def, int att, int mag);
 int playerAttack(char player[50], int hp, int def, int att, int mag);
 int combat(char monster, int hp, int def, int att, int mag);
+
+char playName[50] = "Ralphie";
+int playHp, playDef, playAtt, playMag;
+
 char monName[50] = "Wolf";
 int monHp, monDef, monAtt, monMag;
 bool innitiative = true;
@@ -27,7 +31,10 @@ return 0;
 
 
 int playerAttack(char player[50], int hp, int def, int att, int mag){
-printf("Inside player attack, %s\n", player);	
+printf("Enemy name:  %s\n", monName);	
+printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", monHp, monDef, monAtt, monMag); 
+printf("Player name:  %s\n", player);	
+printf("Player HP: %d Player Defense: %d, Player Attack: %d, Player Magic: %d\n", hp, def, att, mag); 
 int playerMove=0;
 scanf("%d", &playerMove);
 
