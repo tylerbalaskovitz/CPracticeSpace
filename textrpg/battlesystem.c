@@ -43,6 +43,7 @@ printf("Player name:  %s\n", player);
 printf("Player HP: %d Player Defense: %d, Player Attack: %d, Player Magic: %d\n", hp, def, att, mag);
 printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 	int playerAttack=0;
+	damageDealt = 0;
 	scanf("%d", &playerAttack);
 	switch(playerAttack){
 		case 1: damageDealt = att - monDef; monHp-= damageDealt; break;
@@ -51,9 +52,11 @@ printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 		case 4: printf("You pass this round. Wow neat!"); break;
 		default:printf("You pass this round. Wow neat!"); break;
 	}
-
+	if (damageDealt > 0) {
+		printf("\nThe monster attacks you for %d damage\n", damageDealt);
+	}
 	if (monHp <= 0) {
-		printf("You have defeated the %s, congratulations!", monName);
+		printf("You have defeated the %s, congratulations!\n", monName);
 		victory = true;
 		return 1;
 }
@@ -64,6 +67,7 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
 
+	damageDealt = 0;
 	int enemyAttack=0;
 	enemyAttack = 1 + (rand() % 4); // random chance to atack 
 	switch(enemyAttack){
@@ -72,9 +76,11 @@ printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp
 		case 3: damageDealt = mag - monDef; monHp-= damageDealt; break;
 		case 4: printf("The %s attacks and misses. How lucky!", monName); break;
 	}
-
+	if (damageDealt > 0) {
+		printf("The monster attacks you for %d damage\n", damageDealt);
+	}
 	if (playHp <= 0) {
-		printf("You have been defeated the %s, you lose!", monName);
+		printf("You have been defeated the %s, you lose!\n", monName);
 		victory = false;
 		return 1;
 }
