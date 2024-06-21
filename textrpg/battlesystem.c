@@ -10,7 +10,7 @@ int damageDealt = 0;
 char playName[50] = "Ralphie";
 int playHp = 30, playDef = 5, playAtt = 20, playMag = 25, playTempDef = 0;
 char monName[50] = "Wolf";
-int monHp = 45, monDef = 7, monAtt = 10, monMag = 15;
+int monHp = 45, monDef = 7, monAtt = 10, monMag = 15, monTempDef = 0;
 bool innitiative = true;
 bool inBattle = true;
 int battleCondition = 0;
@@ -64,23 +64,25 @@ return 0;
 }
 
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
+/*
 printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
-
+*/
 	damageDealt = 0;
 	int enemyAttack=0;
 	enemyAttack = 1 + (rand() % 4); // random chance to atack 
+	printf("The %s rolled a %d\n", monName, enemyAttack);
 	switch(enemyAttack){
-		case 1: damageDealt = att - monDef; monHp-= damageDealt; break;
-		case 2: playTempDef = playTempDef+2  ; break;
-		case 3: damageDealt = mag - monDef; monHp-= damageDealt; break;
-		case 4: printf("The %s attacks and misses. How lucky!", monName); break;
+		case 1: damageDealt = att - monDef; playHp-= damageDealt; break;
+		case 2: monTempDef = monTempDef+2; printf("The %s raises their defense!\n", monName); break;
+		case 3: damageDealt = mag - playDef; playHp-= damageDealt; break;
+		case 4: printf("The %s attacks and misses. How lucky!\n", monName); break;
 	}
 	if (damageDealt > 0) {
-		printf("The monster attacks you for %d damage\n", damageDealt);
+		printf("The %s attacks you for %d damage\n", monName, damageDealt);
 	}
 	if (playHp <= 0) {
-		printf("You have been defeated the %s, you lose!\n", monName);
+		printf("You have been defeated by the %s, you lose!\n", monName);
 		victory = false;
 		return 1;
 }
