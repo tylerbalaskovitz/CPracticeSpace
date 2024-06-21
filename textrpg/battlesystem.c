@@ -10,7 +10,7 @@ int damageDealt = 0;
 char playName[50] = "Ralphie";
 int playHp = 30, playDef = 5, playAtt = 20, playMag = 25, playTempDef = 0;
 char monName[50] = "Wolf";
-int monHp, monDef, monAtt, monMag;
+int monHp = 45, monDef = 7, monAtt = 10, monMag = 15;
 bool innitiative = true;
 bool inBattle = true;
 int battleCondition = 0;
@@ -19,11 +19,13 @@ bool victory = false;
  int main() {
 	 while (inBattle){
 	 battleCondition = playerAttack(playName, playHp, playDef, playAtt, playMag);
+		if (battleCondition == 1){
+			inBattle = false;
+		}
 	 battleCondition = monsterAttack(monName, monHp,monDef,monAtt,monMag);		
-	
-	if (battleCondition == 1){
-		inBattle = false;
-	}
+		if (battleCondition == 1){
+			inBattle = false;
+		}
 
 	 
 
@@ -48,10 +50,12 @@ printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 		case 3: damageDealt = mag - monDef; monHp-= damageDealt; break;
 		case 4: printf("You pass this round. Wow neat!"); break;
 		default:printf("You pass this round. Wow neat!"); break;
+	}
+
 	if (monHp <= 0) {
 		printf("You have defeated the %s, congratulations!", monName);
+		victory = true;
 		return 1;
-	}
 }
 return 0;
 }
@@ -60,6 +64,11 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
 
+	if (playHp <= 0) {
+		printf("You have been defeated the %s, you lose!", monName);
+		victory = false;
+		return 1;
+}
 
 return 0;
 }
