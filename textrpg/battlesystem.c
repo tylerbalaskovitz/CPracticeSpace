@@ -6,6 +6,7 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag);
 int playerAttack(char player[50], int hp, int def, int att, int mag);
 int combat(char monster, int hp, int def, int att, int mag);
 
+int damageDealt = 0;
 char playName[50] = "Ralphie";
 int playHp = 30, playDef = 5, playAtt = 20, playMag = 25, playTempDef = 0;
 char monName[50] = "Wolf";
@@ -20,14 +21,14 @@ bool victory = false;
 	 battleCondition = playerAttack(playName, playHp, playDef, playAtt, playMag);
 	 battleCondition = monsterAttack(monName, monHp,monDef,monAtt,monMag);		
 	
-	if (battleCondition = 1){
-	inBattle = false;
+	if (battleCondition == 1){
+		inBattle = false;
 	}
 
-	 }
+	 
 
 
-
+	}
 return 0;
  }
 
@@ -39,18 +40,22 @@ printf("========================================================================
 printf("Player name:  %s\n", player);	
 printf("Player HP: %d Player Defense: %d, Player Attack: %d, Player Magic: %d\n", hp, def, att, mag);
 printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
-int playerAttack=0;
-scanf("%d", &playerAttack);
-switch(playerAttack){
-	case 1: monHp= monHp - att+monDef; break;
-	case 2: playTempDef = playTempDef+2  ; break;
-	case 3: monHp= monHp - mag+monDef; break;
-	case 4: printf("You pass this round. Wow neat!"); break;
-	default:printf("You pass this round. Wow neat!"); break;
- 
+	int playerAttack=0;
+	scanf("%d", &playerAttack);
+	switch(playerAttack){
+		case 1: damageDealt = att - monDef; monHp-= damageDealt; break;
+		case 2: playTempDef = playTempDef+2  ; break;
+		case 3: damageDealt = mag - monDef; monHp-= damageDealt; break;
+		case 4: printf("You pass this round. Wow neat!"); break;
+		default:printf("You pass this round. Wow neat!"); break;
+	if (monHp <= 0) {
+		printf("You have defeated the %s, congratulations!", monName);
+		return 1;
+	}
 }
 return 0;
 }
+
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
