@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
 int monsterAttack(char monster[50], int hp, int def, int att, int mag);
 int playerAttack(char player[50], int hp, int def, int att, int mag);
 int combat(char monster, int hp, int def, int att, int mag);
-int turnHolder = 0;
+char turnHolder[50];
 int damageDealt = 0;
 char playName[50] = "Ralphie";
 int playHp = 30, playDef = 5, playAtt = 20, playMag = 25, playTempDef = 0;
@@ -64,7 +65,9 @@ printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 		victory = true;
 		return 1;
 	}
-	scanf("%d", &turnHolder);
+	fgets(turnHolder, sizeof(turnHolder), stdin);
+
+
 return 0;
 }
 
@@ -88,8 +91,9 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 		victory = false;
 		return 1;
 }
+	fgets(turnHolder, sizeof(turnHolder), stdin);
 
-	scanf("%d", &turnHolder);
+
 return 0;
 }
 
