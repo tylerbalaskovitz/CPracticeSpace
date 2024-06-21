@@ -19,15 +19,18 @@ bool victory = false;
  int main() {
 	 while (inBattle){
 	 printf("\033[2J\033[1;1H");
+	 if (battleCondition == 0) {
 	 battleCondition = playerAttack(playName, playHp, playDef, playAtt, playMag);
 		if (battleCondition == 1){
 			inBattle = false;
 		}
+	}
+	 if (battleCondition == 0) {
 	 battleCondition = monsterAttack(monName, monHp,monDef,monAtt,monMag);		
 		if (battleCondition == 1){
 			inBattle = false;
 		}
-
+	}
 	 
 
 
@@ -61,7 +64,7 @@ printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 		victory = true;
 		return 1;
 	}
-	scanf("%d", turnHolder);
+	scanf("%d", &turnHolder);
 return 0;
 }
 
@@ -86,7 +89,7 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 		return 1;
 }
 
-	scanf("%d", turnHolder);
+	scanf("%d", &turnHolder);
 return 0;
 }
 
