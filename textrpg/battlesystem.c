@@ -64,6 +64,15 @@ int monsterAttack(char monster[50], int hp, int def, int att, int mag){
 printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
 
+	int enemyAttack=0;
+	enemyAttack = 1 + (rand() % 4); // random chance to atack 
+	switch(enemyAttack){
+		case 1: damageDealt = att - monDef; monHp-= damageDealt; break;
+		case 2: playTempDef = playTempDef+2  ; break;
+		case 3: damageDealt = mag - monDef; monHp-= damageDealt; break;
+		case 4: printf("The %s attacks and misses. How lucky!", monName); break;
+	}
+
 	if (playHp <= 0) {
 		printf("You have been defeated the %s, you lose!", monName);
 		victory = false;
