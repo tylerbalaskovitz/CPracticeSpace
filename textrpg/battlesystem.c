@@ -18,6 +18,7 @@ bool victory = false;
 
  int main() {
 	 while (inBattle){
+	 printf("\033[2J\033[1;1H");
 	 battleCondition = playerAttack(playName, playHp, playDef, playAtt, playMag);
 		if (battleCondition == 1){
 			inBattle = false;
@@ -64,10 +65,7 @@ return 0;
 }
 
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
-/*
-printf("\nEnemy name:  %s\n", monster);	
-printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
-*/
+
 	damageDealt = 0;
 	int enemyAttack=0;
 	enemyAttack = 1 + (rand() % 4); // random chance to atack 
