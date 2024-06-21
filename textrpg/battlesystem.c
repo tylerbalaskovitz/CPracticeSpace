@@ -33,12 +33,12 @@ return 0;
 
 
 int playerAttack(char player[50], int hp, int def, int att, int mag){
-printf("Enemy name:  %s\n", monName);	
+printf("\nEnemy name:  %s\n", monName);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", monHp, monDef, monAtt, monMag); 
 printf("=============================================================================================\n");
 printf("Player name:  %s\n", player);	
 printf("Player HP: %d Player Defense: %d, Player Attack: %d, Player Magic: %d\n", hp, def, att, mag);
-printf("1: Attack\n 2: Defend\n 3: Magic Attack\n 4:Pass");
+printf("1: Attack\n2: Defend\n3: Magic Attack\n4:Pass\n");
 int playerAttack=0;
 scanf("%d", &playerAttack);
 switch(playerAttack){
@@ -52,7 +52,7 @@ switch(playerAttack){
 return 0;
 }
 int monsterAttack(char monster[50], int hp, int def, int att, int mag){
-printf("Enemy name:  %s\n", monster);	
+printf("\nEnemy name:  %s\n", monster);	
 printf("Enemy HP: %d Enemy Defense: %d, Enemy Attack: %d, Enemy Magic: %d\n", hp, def, att, mag); 
 
 
